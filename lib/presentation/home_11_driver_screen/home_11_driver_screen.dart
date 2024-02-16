@@ -1,0 +1,16 @@
+import 'dart:async';import 'package:flutter/material.dart';import 'package:google_maps_flutter/google_maps_flutter.dart';import 'package:link_click/core/app_export.dart';import 'package:link_click/widgets/custom_elevated_button.dart';import 'package:link_click/widgets/custom_floating_button.dart';
+// ignore_for_file: must_be_immutable
+class Home11DriverScreen extends StatelessWidget {Home11DriverScreen({Key? key}) : super(key: key);
+
+Completer<GoogleMapController> googleMapController = Completer();
+
+@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(body: SizedBox(width: double.maxFinite, child: SingleChildScrollView(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [SizedBox(height: 758.v, width: double.maxFinite, child: Stack(alignment: Alignment.bottomCenter, children: [Align(alignment: Alignment.topCenter, child: Container(margin: EdgeInsets.only(right: 1.h), padding: EdgeInsets.symmetric(horizontal: 14.h, vertical: 13.v), decoration: BoxDecoration(image: DecorationImage(image: AssetImage(ImageConstant.imgGroup30), fit: BoxFit.cover)), child: _buildHomeMap(context))), _buildNavigationMenu(context)])), SizedBox(height: 79.v), CustomImageView(imagePath: ImageConstant.imgRectangle3464, height: 14.v, width: 4.h, margin: EdgeInsets.only(left: 101.h))]))), floatingActionButton: _buildFloatingActionButton(context))); } 
+/// Section Widget
+Widget _buildHomeMap(BuildContext context) { return SizedBox(height: 517.v, width: 327.h, child: GoogleMap(mapType: MapType.normal, initialCameraPosition: CameraPosition(target: LatLng(37.43296265331129, -122.08832357078792), zoom: 14.4746), onMapCreated: (GoogleMapController controller) {googleMapController.complete(controller);}, zoomControlsEnabled: false, zoomGesturesEnabled: false, myLocationButtonEnabled: false, myLocationEnabled: false)); } 
+/// Section Widget
+Widget _buildNavigationMenu(BuildContext context) { return Align(alignment: Alignment.bottomCenter, child: Container(padding: EdgeInsets.symmetric(horizontal: 75.h, vertical: 12.v), decoration: AppDecoration.outlineBlack, child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [SizedBox(height: 4.v), CustomElevatedButton(text: "Start Navigation", onPressed: () {onTapStartNavigation(context);}), SizedBox(height: 11.v), Container(width: 138.h, margin: EdgeInsets.only(left: 28.h), child: RichText(text: TextSpan(children: [TextSpan(text: "Time :", style: CustomTextStyles.titleMediumff5a5a5aBold), TextSpan(text: " 1:30 \n", style: CustomTextStyles.titleMediumff5a5a5a), TextSpan(text: "Distance : 0.5 km\n", style: CustomTextStyles.titleMediumff5a5a5aBold)]), textAlign: TextAlign.center))]))); } 
+/// Section Widget
+Widget _buildFloatingActionButton(BuildContext context) { return CustomFloatingButton(height: 47, width: 47, backgroundColor: theme.colorScheme.onPrimaryContainer, child: CustomImageView(imagePath: ImageConstant.imgClock, height: 23.5.v, width: 23.5.h)); } 
+/// Navigates to the home12DriverScreen when the action is triggered.
+onTapStartNavigation(BuildContext context) { Navigator.pushNamed(context, AppRoutes.home12DriverScreen); } 
+ }
